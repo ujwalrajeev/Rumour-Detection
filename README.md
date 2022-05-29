@@ -1,2 +1,2 @@
 # Rumour-Detection
-An program to detect fake and real rumours
+A online program to detect fake and real rumours
