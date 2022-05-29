@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url('/static/background.jpeg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  font-size: 15px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.upload {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#submit {
+    background-color: #000000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+
+input[type=text] {
+   width: 250px;
+   color: white;
+   box-sizing: border-box;
+   border: 2px solid white;
+   border-radius: 4px;
+   background: transparent;
+   padding: 12px 20px 12px 40px;
+   transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+   width: 500px;
+}
+
+::placeholder {
+   color: white;
+}
+
+.output{
+  color: #ebe1ab; 
+}
+
+
+</style>
+<body>
+
+<div class="bgimg">
+  <div class="topleft">
+  </div>
+  <div class="middle">
+     <div class="output">
+     {% if name %}
+     	<p>The tweet is {{name}} </p>
+     {% endif %}
+     </div>
+    <h1>Rumour detection</h1>
+    <hr>
+    <p>Just type the message you got we will tell you whether it is true or not</p>
+   </div>
+   
+   <div class="upload">
+   
+ 	<form action="http://127.0.0.1:5000/app" method=post enctype=multipart/form-data>
+      	 <input type="text" name="message" id="msg" placeholder="Type the message here" required>
+      	 <br>
+      	 <br>
+         <input type=submit value=Check name=submit id=submit>
+    </form>
+   
+   </div>
+   
+   
+  <div class="bottomleft">
+    <p>Created by Ujwalrajeev, Vyshak A, Teena Poulose and Swaliha Abdul Salam</p>
+  </div>
+</div>
+
+<script>
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
