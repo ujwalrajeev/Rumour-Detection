@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<script>
+$(document).ready(function(){
+  $("#submit").text('Check')
+  $("button").click(function(){
+    $(this).text('Please wait');
+  });
+});
+</script>
+
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url('/static/background.jpeg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  font-size: 15px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.upload {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding-top: 10px;
+}
+
+#submit {
+    background-color: #000000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+
+input[type=text] {
+   width: 250px;
+   color: white;
+   box-sizing: border-box;
+   border: 2px solid white;
+   border-radius: 4px;
+   background: transparent;
+   padding: 12px 20px 12px 40px;
+   transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+   width: 500px;
+}
+
+::placeholder {
+   color: white;
+}
+
+.output{
+  color: red; 
+  font-size: 35px
+}
+
+.outputbg{
+  background-color: #ffff;
+}
+
+.btn{
+background-color: #000000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+</style>
+<body>
+
+<div class="bgimg">
+  <div class="topleft">
+  </div>
+  <div class="middle">
+     <div class="output">
+     {% if name %}
+     <div class = "outputbg">
+     	<p>The tweet is {{name}} </p>
+      </div>
+     {% endif %}
+     </div>
+    <h1>Scandal Verifier</h1>
+    <hr>
+    <p>Just type the message or Tweet URL, we will tell you whether it is true or not</p>
+   </div>
+   
+   <div class="upload">
+   
+ 	<form action="http://127.0.0.1:5000/app" method=post enctype=multipart/form-data >
+      	 <input type="text" name="message" id="msg" placeholder="Type the message or URL here" required>
+      	 <br>
+      	 <br>
+         <button type=submit value=Check name=submit id=submit>
+	<br><br><br><br>
+    </form>
+
+	
+
+	{% if name %}
+		<a href="/download" target="blank"><button class='btn'>Download stance report</button></a>
+ 	{% endif %}
+   
+   </div>
+   
+   
+  <div class="bottomleft">
+    <p>Created by Ujwalrajeev, Vyshak A, Teena Poulose and Swaliha Abdul Salam</p>
+  </div>
+</div>
+
+</body>
+</html>
+
